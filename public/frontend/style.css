@@ -1,0 +1,42 @@
+h1 {
+    color: blue;
+}
+
+footer {
+    height: 50px;
+    text-align: center;
+    background-color: aqua;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    margin-top: 578px;
+}
+
+footer span {
+    font-weight: 500;
+}
+
+.nav {
+    background-color: aqua;
+    border-radius: 20px;
+    height: 100px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.nav .links {
+    margin-top: 30px;
+    margin-left: 1000px;
+}
+
+.links a{
+    text-decoration-line: none;
+    -moz-text-decoration-line: none;
+    color: rgb(230, 12, 12);
+    font-weight: 500;
+    font-size: 20px;
+}

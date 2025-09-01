@@ -1,0 +1,113 @@
+h1 {
+    color: blue;
+    text-align: center;
+    /* margin-top: 20px; */
+}
+
+footer {
+    height: 50px;
+    text-align: center;
+    background-color: aqua;
+    /* margin-top: 580px; */
+}
+
+footer span {
+    font-weight: 500;
+}
+
+.nav {
+    background-color: aqua;
+    height: 100px;
+}
+
+.nav .links {
+    margin-top: 30px;
+    margin-left: 1200px;
+}
+
+.links a {
+    text-decoration-line: none;
+    -moz-text-decoration-line: none;
+    color: rgb(230, 12, 12);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.container {
+    background-color: blanchedalmond;
+    min-height: 579px;
+}
+
+label {
+    color: rgb(21, 11, 215);
+    font-weight: 600;
+    font-size: larger;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 30px 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.login-container .form-label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #495057;
+}
+
+.login-container .form-control {
+    height: 45px;
+    border-radius: 6px;
+}
+
+.login-container .btn {
+    height: 45px;
+    font-weight: 500;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.login-container .text-danger {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.login-container a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+.signup-container {
+    max-width: 450px;
+    margin: 60px auto;
+    background-color: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.signup-container h2 {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #343a40;
+}
