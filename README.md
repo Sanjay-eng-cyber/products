@@ -59,3 +59,67 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+<!-- project setup details: -->
+
+1) I have push project on git repo : https://github.com/Sanjay-eng-cyber/products.
+
+first i run command git init
+then  git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/your-username/your-repo.git
+git branch -M main
+git push -u origin main
+
+2) I had use user table for multi auth and i have add column role in this table.
+i have use middleware admin for admin routes.  
+i have use middleware customer for customer routes.  
+
+and i have use both routes in web.php
+
+3) Websocket stack used:
+
+first i run command : install:broadcast.
+then i install laravel echo pusher.js.
+i have use reverb.
+route/channel : 
+
+Broadcast::channel('orders.{orderId}', function ($user, $orderId) {
+    $order = Order::find($orderId);
+    return $order && $order->user_id === $user->id;
+});
+
+this is private channel only order user can get update not all user.
+
+Broadcast::channel('admin.presence', function ($user) {
+    return ['id' => $user->id, 'name' => $user->name, 'role' => $user->role];
+});
+
+#) admin.presence is a presence channel.
+#) Presence channels allow tracking who is currently online.
+
+4) Bulk import implementation details and optimizations:
+first i have run this command:
+#) composer require maatwebsite/excel for package install karne ke liye.
+#) php artisan make:import ProductImport --model=Product for import fuc add kar ne ke liye.2 then i have define chunk size in this.
+
+then i have define chunk size.
+csv file column fetching by  
+public function model(array $row)
+    {
+        return new Product([
+            'name'  => $row[0],
+            'category' => $row[1],
+            'image' => $row[2],
+            'price' => $row[3],
+            'stock' => $row[4],
+            'description' => $row[5],
+        ]);
+    } 
+
+then i have add Excel::import(new ProductsImport, $request->file('file')); in product controller in import method.
+
+5) you want to start reverb server you to run two command in repo:
+#) npm run dev
+#) php artisan reverb:start
