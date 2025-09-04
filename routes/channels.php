@@ -4,6 +4,7 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Broadcasting\PresenceChannel;
 
+
 Broadcast::channel('orders.{orderId}', function ($user, $orderId) {
     $order = Order::find($orderId);
     return $order && $order->user_id === $user->id;

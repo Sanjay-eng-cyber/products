@@ -31,9 +31,24 @@
 
         orders.forEach(orderId => {
             window.Echo.private(`orders.${orderId}`)
-                .listen('.OrderStatusUpdated', (e) => {
-                    document.getElementById(`status-${e.order_id}`).textContent = e.status;
+                .listen('.OrderStatusUpdated', (notification) => {
+                    // console.log("📢 Notification:", notification);
+                    document.getElementById(`status-${notification.order_id}`).textContent =
+                        notification.status;
+                    showNotification(notification.message);
                 });
+
         });
+
+        // Simple function for popup (can replace with SweetAlert, Toastify, etc.)
+        function showNotification(message) {
+            // console.log(status);
+            Snackbar.show({
+                text: message,
+                pos: 'top-right',
+                actionTextColor: '#fff',
+                backgroundColor: '#1abc9c'
+            });
+        }
     });
 </script>

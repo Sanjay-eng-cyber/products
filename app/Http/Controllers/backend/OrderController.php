@@ -27,8 +27,8 @@ class OrderController extends Controller
         $order = Order::findOrFail($req->order_id);
         $order->status = $req->status;
         if ($order->save()) {
-            // $order->user->notify(new OrderStatusUpdatedNotification($order));
             broadcast(new OrderStatusUpdated($order))->toOthers();
+            $order->user->notify(new OrderStatusUpdatedNotification($order));
             return redirect()->back()->with(['alert-type' => 'success', 'message' => 'Order Status Updated Successfully']);
         }
         return redirect()->back()->with(['alert-type' => 'error', 'message' => 'Something Went Wrong']);
