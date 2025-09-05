@@ -36,7 +36,7 @@ class OrderStatusUpdated implements ShouldBroadcastNow
         return [
             'order_id' => $this->order->id,
             'status'   => $this->order->status,
-            'message'  => "from broadcast Your order of {$this->order->product->name} is now: {$this->order->status}",
+            'message'  => "Your order of {$this->order->product->name} is now: {$this->order->status}",
         ];
     }
 }
