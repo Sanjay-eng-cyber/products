@@ -28,7 +28,8 @@
             return;
         }
         const orders = @json($orders->pluck('id')); // all order IDs
-
+        const userId = @json(auth()->id());
+        // console.log(userId);
         orders.forEach(orderId => {
             window.Echo.private(`orders.${orderId}`)
                 .listen('.OrderStatusUpdated', (notification) => {
@@ -50,5 +51,11 @@
                 backgroundColor: '#1abc9c'
             });
         }
+
+        window.Echo.private(`App.Models.User.${userId}`)
+            .notification((notification) => {
+                console.log(notification.product_name); // App\Notifications\NewMessageNotification
+                console.log(notification.status); // "Hello from broadcast!"
+            });
     });
 </script>

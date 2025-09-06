@@ -13,3 +13,7 @@ Broadcast::channel('orders.{orderId}', function ($user, $orderId) {
 Broadcast::channel('admin.presence', function ($user) {
     return ['id' => $user->id, 'name' => $user->name, 'role' => $user->role];
 });
+
+Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
+    return (int) $user->id === (int) $id;
+});

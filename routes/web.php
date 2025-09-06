@@ -39,12 +39,12 @@ Route::domain(config('app.cms_domain'))->group(function () {
     Broadcast::routes(['middleware' => ['auth:admin']]);
     require __DIR__ . '/auth.php';
     Route::post('/push-subscribe', function (Illuminate\Http\Request $request) {
-    auth()->user()->updatePushSubscription(
-        $request->endpoint,
-        $request->keys
-    );
-    return response()->json(['success' => true]);
-});
+        auth()->user()->updatePushSubscription(
+            $request->endpoint,
+            $request->keys
+        );
+        return response()->json(['success' => true]);
+    });
     Route::get('login', [AuthController::class, 'loginShow'])->name('backend.login');
     Route::post('login', [AuthController::class, 'login'])->name('backend.login.store');
     Route::get('sign-up', [AuthController::class, 'userRegisterShow'])->name('backend.signUp');

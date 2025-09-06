@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Events\OrderStatusUpdated;
 use App\Http\Controllers\Controller;
+use App\Notifications\NewMessageNotification;
 use App\Notifications\OrderStatusUpdatedNotification;
 
 class OrderController extends Controller
@@ -28,7 +29,7 @@ class OrderController extends Controller
         $order->status = $req->status;
         if ($order->save()) {
             broadcast(new OrderStatusUpdated($order))->toOthers();
-            $order->user->notify(new OrderStatusUpdatedNotification($order));
+            $order->user->notify(new NewMessageNotification($order));
             return redirect()->back()->with(['alert-type' => 'success', 'message' => 'Order Status Updated Successfully']);
         }
         return redirect()->back()->with(['alert-type' => 'error', 'message' => 'Something Went Wrong']);
